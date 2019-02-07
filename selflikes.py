@@ -48,7 +48,7 @@ def check_photos(wrapper, target):
     for num, photo in enumerate(photos):
         likes = wrapper.get_likes(target, photo, "photo")
         if target in likes:
-            liked_photos.append(post)
+            liked_photos.append(photo)
         print(f"{num} out of {len(photos)} photos.")
     print("Got photo likes.")
     return liked_photos
