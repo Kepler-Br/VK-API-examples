@@ -58,7 +58,7 @@ def unlike_photos(wrapper, target, min_waiting=1, max_waiting=3):
                 print(f"Access denied on photo #{num}/{len(photos)}. Waiting {wait}")
                 sleep(wait)
                 continue
-        wait = random.randint(1, 4) + random.random()
+        wait = random.randint(min_waiting, max_waiting) + random.random()
         print(f"{num} unliked out of {len(photos)} photos. Waiting for {wait} seconds.")
         sleep(wait)
 
