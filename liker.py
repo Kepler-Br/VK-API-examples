@@ -80,7 +80,7 @@ def main():
 
     like_posts(wrapper, target)
     like_photos(wrapper, target)
-    
+
     print("Done.")
 
 
