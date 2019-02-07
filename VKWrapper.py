@@ -1,8 +1,8 @@
 import vk
+from ratelimiter import RateLimiter
+
 import requests
 import time
-import logging
-from ratelimiter import RateLimiter
 
 
 class VKWrapper(object):
