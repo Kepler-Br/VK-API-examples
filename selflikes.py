@@ -79,7 +79,7 @@ def main():
     user_info = wrapper.get_user(target)
     target_name = f"{user_info['first_name']} {user_info['last_name']}"
     print_selflikes(target_name, liked_posts, liked_photos)
-    
+
     print("Done.")
 
 
