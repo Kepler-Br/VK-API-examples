@@ -4,17 +4,15 @@ import time
 import logging
 from ratelimiter import RateLimiter
 
+
 class VKWrapper(object):
-    # def __init__(self, user_login, user_password, app_id="3265802"):
-    def __init__(self, token):
-        # self.session = vk.AuthSession(app_id=app_id, user_login=user_login, user_password=user_password, scope="wall")
-        self.session = vk.Session(access_token=token)
+    def __init__(self, user_login, user_password, app_id="3265802", scope="wall"):
+        self.session = vk.AuthSession(app_id=app_id, user_login=user_login, user_password=user_password, scope=scope)
+        # self.session = vk.Session(access_token=token)
         self.api = vk.API(self.session, v='5.85')
-        self.logger = logging.getLogger("VKWrapper")
 
     @RateLimiter(max_calls=1, period=1)
     def __execute_command(self, fun, **kwargs):
-        # print("request")
         captcha_needed = False
         captcha_answer = None
         captcha_sid = None
@@ -34,21 +32,19 @@ class VKWrapper(object):
                 time.sleep(4)
                 continue
             except vk.exceptions.VkAPIError as e:
-                self.logger.error(e)
-                if "invalid access_token" in e.message:
-                    raise
-                if "Too many requests per second" in e.message:
+                print(f"VKWrapper Error: {e.message}")
+                # Error 6 stands for "Too many requests per second."
+                if "ERROR 6" in e.message:
                     time.sleep(1)
                     continue
-                if "captcha" in e.message.lower():
+                # Error 14 stands for "Captcha needed"
+                if "ERROR 14" in e.message.lower():
                     print(f"Please, answer this: {e.captcha_img}")
                     captcha_sid = e.captcha_sid
                     captcha_answer = input()
                     captcha_needed = True
                     time.sleep(10)
                 raise
-                # time.sleep(2)
-                # continue
         return result
 
     def leave_like(self, user_id, type, item_id):
