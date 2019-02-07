@@ -7,6 +7,7 @@ Utility list:
 * `liker` - will like every post and almost every photo on user profile;  
 * `unliker` - will unlike every post and almost every photo on user profile;  
 * `selflikes` - will expose selfish persons;  
-* `fandetect` - will list top 5 likers on user's profile.  
+* `fandetect` - will list top 5 likers on user's profile;  
+* `bestfrienddetect` - will list top 10 most liked friends by user.
 
 To fire this utilities up you should register your own standalone app and fill fields in settings.json file.  
