@@ -11,7 +11,7 @@ class VKWrapper(object):
         # self.session = vk.Session(access_token=token)
         self.api = vk.API(self.session, v='5.85')
 
-    @RateLimiter(max_calls=1, period=1)
+    @RateLimiter(max_calls=3, period=1)
     def __execute_command(self, fun, **kwargs):
         captcha_needed = False
         captcha_answer = None
