@@ -80,7 +80,7 @@ def write_top(wrapper, liked_friends):
         total_ratio = results[1]["total_ratio"]
 
         f.write(f"{num}) [id{friend_id}|{friend_name}]: \n"
-                f"    Photo likes: {photo_likes}; Total photos: {total_photos}; Ratio: {photo_ratio}\n"
+                f"    Photo likes: {photo_likes}; Total photos: {total_photos}; **Ratio: {photo_ratio}**\n"
                 f"    Post likes: {post_likes}; Total posts: {total_posts}; Ratio: {post_ratio};\n"
                 f"    Total likes: {total_likes}; Ratio: {total_ratio}.\n")
     f.write("\n-----------------------------------------------------------\n\n")
@@ -103,30 +103,7 @@ def write_top(wrapper, liked_friends):
         total_ratio = results[1]["total_ratio"]
 
         f.write(f"{num}) [id{friend_id}|{friend_name}]: \n"
-                f"    Photo likes: {photo_likes}; Total photos: {total_photos}; Ratio: {photo_ratio}\n"
-                f"    Post likes: {post_likes}; Total posts: {total_posts}; Ratio: {post_ratio};\n"
-                f"    Total likes: {total_likes}; Ratio: {total_ratio}.\n")
-    f.write("\n-----------------------------------------------------------\n\n")
-
-    f.write("Sorted by post likes:\n")
-    by_photo_ratio = sorted(liked_friends.items(), key=lambda x: x[1]["post_likes"], reverse=True)
-    for num, results in enumerate(by_photo_ratio):
-        friend_id = results[0]
-        friend_name = friends_names[friend_id]
-
-        photo_likes = results[1]["photo_likes"]
-        total_photos = results[1]["total_photos"]
-        photo_ratio = results[1]["photo_ratio"]
-
-        post_likes = results[1]["post_likes"]
-        total_posts = results[1]["total_posts"]
-        post_ratio = results[1]["post_ratio"]
-
-        total_likes = results[1]["total_likes"]
-        total_ratio = results[1]["total_ratio"]
-
-        f.write(f"{num}) [id{friend_id}|{friend_name}]: \n"
-                f"    Photo likes: {photo_likes}; Total photos: {total_photos}; Ratio: {photo_ratio}\n"
+                f"    **Photo likes: {photo_likes}**; Total photos: {total_photos}; Ratio: {photo_ratio}\n"
                 f"    Post likes: {post_likes}; Total posts: {total_posts}; Ratio: {post_ratio};\n"
                 f"    Total likes: {total_likes}; Ratio: {total_ratio}.\n")
     f.write("\n-----------------------------------------------------------\n\n")
@@ -150,7 +127,30 @@ def write_top(wrapper, liked_friends):
 
         f.write(f"{num}) [id{friend_id}|{friend_name}]: \n"
                 f"    Photo likes: {photo_likes}; Total photos: {total_photos}; Ratio: {photo_ratio}\n"
-                f"    Post likes: {post_likes}; Total posts: {total_posts}; Ratio: {post_ratio};\n"
+                f"    Post likes: {post_likes}; Total posts: {total_posts}; **Ratio: {post_ratio}**;\n"
+                f"    Total likes: {total_likes}; Ratio: {total_ratio}.\n")
+    f.write("\n-----------------------------------------------------------\n\n")
+
+    f.write("Sorted by post likes:\n")
+    by_photo_ratio = sorted(liked_friends.items(), key=lambda x: x[1]["post_likes"], reverse=True)
+    for num, results in enumerate(by_photo_ratio):
+        friend_id = results[0]
+        friend_name = friends_names[friend_id]
+
+        photo_likes = results[1]["photo_likes"]
+        total_photos = results[1]["total_photos"]
+        photo_ratio = results[1]["photo_ratio"]
+
+        post_likes = results[1]["post_likes"]
+        total_posts = results[1]["total_posts"]
+        post_ratio = results[1]["post_ratio"]
+
+        total_likes = results[1]["total_likes"]
+        total_ratio = results[1]["total_ratio"]
+
+        f.write(f"{num}) [id{friend_id}|{friend_name}]: \n"
+                f"    Photo likes: {photo_likes}; Total photos: {total_photos}; Ratio: {photo_ratio}\n"
+                f"    **Post likes: {post_likes}**; Total posts: {total_posts}; Ratio: {post_ratio};\n"
                 f"    Total likes: {total_likes}; Ratio: {total_ratio}.\n")
     f.write("\n-----------------------------------------------------------\n\n")
 
@@ -174,7 +174,7 @@ def write_top(wrapper, liked_friends):
         f.write(f"{num}) [id{friend_id}|{friend_name}]: \n"
                 f"    Photo likes: {photo_likes}; Total photos: {total_photos}; Ratio: {photo_ratio}\n"
                 f"    Post likes: {post_likes}; Total posts: {total_posts}; Ratio: {post_ratio};\n"
-                f"    Total likes: {total_likes}; Ratio: {total_ratio}.\n")
+                f"    Total likes: {total_likes}; **Ratio: {total_ratio}**.\n")
     f.write("\n-----------------------------------------------------------\n\n")
 
     f.write("Sorted by total likes:\n")
@@ -197,7 +197,7 @@ def write_top(wrapper, liked_friends):
         f.write(f"{num}) [id{friend_id}|{friend_name}]: \n"
                 f"    Photo likes: {photo_likes}; Total photos: {total_photos}; Ratio: {photo_ratio}\n"
                 f"    Post likes: {post_likes}; Total posts: {total_posts}; Ratio: {post_ratio};\n"
-                f"    Total likes: {total_likes}; Ratio: {total_ratio}.\n")
+                f"    **Total likes: {total_likes}**; Ratio: {total_ratio}.\n")
     f.write("\n-----------------------------------------------------------\n\n")
 
     f.close()
