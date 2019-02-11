@@ -1,6 +1,6 @@
 {
-  app_id: '0',
-  login: '+79999999999',
-  password: "password",
-  target: "0"
+  "app_id": "",
+  "login": "",
+  "password": "",
+  "target": 0
 }
